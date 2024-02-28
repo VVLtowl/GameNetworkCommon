@@ -23,10 +23,10 @@ struct MsgContent
 };
 
 //net msg buf len
-const int LEN_MSG_TOOL = 1024;
+const int LEN_MSG_DATA_DEFAULT = 1024;
 
 //make MsgContent to char
-char* EncodeMsgContent(const MsgContent& msg, char* outBuf=nullptr, int msglen= LEN_MSG_TOOL);
+char* EncodeMsgContent(const MsgContent& msg, char* outBuf=nullptr, int msglen= LEN_MSG_DATA_DEFAULT);
 
 //make char to MsgContent
 bool DecodeMsgContent(const char* strBuff, MsgContent& outMsg);
