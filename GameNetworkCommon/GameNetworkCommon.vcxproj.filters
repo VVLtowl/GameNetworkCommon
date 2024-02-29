@@ -27,6 +27,9 @@
     <ClInclude Include="Server.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="NetworkGameData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -43,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="test.cpp">
       <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkGameData.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

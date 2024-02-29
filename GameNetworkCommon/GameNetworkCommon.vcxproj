@@ -141,12 +141,14 @@
   <ItemGroup>
     <ClInclude Include="Client.h" />
     <ClInclude Include="NetworkCommon.h" />
+    <ClInclude Include="NetworkGameData.h" />
     <ClInclude Include="SerializedTool.h" />
     <ClInclude Include="Server.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="NetworkCommon.cpp" />
+    <ClCompile Include="NetworkGameData.cpp" />
     <ClCompile Include="SerializedTool.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="test.cpp" />
