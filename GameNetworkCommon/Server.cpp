@@ -175,11 +175,17 @@ int Server::SRecvFromC(char* msgBuf)
 	}
 
 	//show client ip
-	char ipBuffer[LEN_MSG]; // 定义用于存储 IP 地址字符串的缓冲区
-	inet_ntop(AF_INET, &(tempAddr.sin_addr), ipBuffer, INET_ADDRSTRLEN); // 将二进制 IP 地址转换为字符串形式
-	std::cout << "[" << ipBuffer << "]: " << msgBuf << std::endl;
+	//char ipBuffer[LEN_MSG]; // 定义用于存储 IP 地址字符串的缓冲区
+	//inet_ntop(AF_INET, &(tempAddr.sin_addr), ipBuffer, INET_ADDRSTRLEN); // 将二进制 IP 地址转换为字符串形式
+	//std::cout << "[" << ipBuffer << "]: " << msgBuf << std::endl;
 
 	return clientID;
+}
+
+void Server::RemoveAddr(int id)
+{
+	m_UDPAddrs.erase(m_UDPAddrs.begin() + id);
+	m_EnableID--;
 }
 
 int Server::GetEnableClientID()

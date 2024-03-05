@@ -51,11 +51,11 @@ bool DecodeCommonStruct(const char* strBuff, long maxLen, CommonStruct& outCommo
     return true;
 }
 
-char* EncodeMsgContent(const MsgContent& msg, char* outBuf ,int msgLen)
+char* EncodeMsgContent(const MsgContent& msg, char* outBuf)
 {
-    //malloc
-    int totalLen = sizeof(long) + sizeof(long) + sizeof(int) + msg.DataLen;
-    char* strBuff = (char*)malloc(msgLen);
+    //malloc       +total len     +bhid size    +data len size +data len
+    int totalLen = sizeof(long) + sizeof(int) + sizeof(long) + msg.DataLen;
+    char* strBuff = (char*)malloc(totalLen);//    char* strBuff = (char*)malloc(msgLen);
     if (nullptr == strBuff)
     {
         return 0;
@@ -73,7 +73,7 @@ char* EncodeMsgContent(const MsgContent& msg, char* outBuf ,int msgLen)
 
     if (outBuf != nullptr)
     {
-        memcpy(outBuf, strBuff, msgLen);
+        memcpy(outBuf, strBuff, totalLen);
     }
 
     return strBuff;
@@ -101,8 +101,12 @@ bool DecodeMsgContent(const char* strBuff, MsgContent& outMsg)
 
     outMsg.BHID = bhid;
     outMsg.DataLen = dataLen;
-    outMsg.Data = (void*)malloc(dataLen);
-    memcpy(outMsg.Data, strBuff + sizeof(long) + sizeof(int) + sizeof(long), dataLen);
+    if (dataLen > 0)
+    {
+        outMsg.Data = (void*)malloc(dataLen);
+        memcpy(outMsg.Data, strBuff + sizeof(long) + sizeof(int) + sizeof(long), dataLen);
+    }
+
     return true;
 }
 

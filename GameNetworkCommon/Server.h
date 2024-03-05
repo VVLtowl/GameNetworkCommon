@@ -12,6 +12,7 @@ public:
 	void Listen();
 	void Accept();
 	int SRecvFromC(char* msgBuf);//UDP, return clientID
+	void RemoveAddr(int id);
 
 private:
 	int m_EnableID;
@@ -24,6 +25,7 @@ public:
 	//UDP
 	SOCKET m_UDPSocket;
 	std::vector<SOCKADDR_IN> m_UDPAddrs;
+	//std::list<SOCKADDR_IN> m_UDPAddrs;
 
 	//TCP todo: repair
 	SOCKET m_TCPListenSocket;

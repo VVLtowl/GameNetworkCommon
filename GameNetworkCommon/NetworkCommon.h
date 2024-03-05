@@ -57,6 +57,7 @@ public:
 public:
 	void Launch();
 	void ShutDown();
+	bool IsActive() { return m_IsStart; };
 
 public:
 	//TCP

@@ -18,15 +18,15 @@ const size_t LEN_MSG_CONTENT = 4;
 struct MsgContent
 {
     int BHID = -1;//for edit command id
-    long DataLen;
-    void* Data;
+    long DataLen = 0;
+    void* Data = nullptr;
 };
 
 //net msg buf len
 const int LEN_MSG_DATA_DEFAULT = 1024;
 
 //make MsgContent to char
-char* EncodeMsgContent(const MsgContent& msg, char* outBuf=nullptr, int msglen= LEN_MSG_DATA_DEFAULT);
+char* EncodeMsgContent(const MsgContent& msg, char* outBuf=nullptr);
 
 //make char to MsgContent
 bool DecodeMsgContent(const char* strBuff, MsgContent& outMsg);

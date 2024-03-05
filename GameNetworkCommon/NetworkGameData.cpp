@@ -21,6 +21,11 @@ void NetworkManager::InitClient()
 	Init((int)BHID_S2C::Max);
 }
 
+void NetworkManager::ResetCommands()
+{
+	Init(Commands.size());
+}
+
 void NetworkManager::SetCommand(BHID_C2S id, std::function<void(MsgContent)> func)
 {
 	Commands[(int)id] = func;
