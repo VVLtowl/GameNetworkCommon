@@ -144,6 +144,7 @@
     <ClInclude Include="NetworkGameData.h" />
     <ClInclude Include="SerializedTool.h" />
     <ClInclude Include="Server.h" />
+    <ClInclude Include="Updater.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="SerializedTool.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="Updater.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

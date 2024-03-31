@@ -11,7 +11,7 @@ public:
 	void Bind();
 	void Listen();
 	void Accept();
-	int SRecvFromC(char* msgBuf);//UDP, return clientID
+	int SRecvFromC(char* msgBuf,bool debug=false);//UDP, return clientID
 	void RemoveAddr(int id);
 
 private:

@@ -21,8 +21,17 @@ enum class BHID_S2C
 	AddPlayer,
 	RemovePlayer,
 	SyncObjectPosition,
+	SyncPlayerState,
 	ApproveQuit,
 	Max,
+};
+
+enum class PlayerStateType
+{
+	None,
+	Idle,
+	Run,
+	Hit,
 };
 
 
@@ -58,10 +67,23 @@ struct Data_C2S_PlayerMove
 	short leftRight;//-1:left, 0:none, 1:right
 };
 
+struct Data_C2S_PlayerHit
+{
+	unsigned int id;
+	float rot;
+};
+
 struct Data_S2C_ObjectPos2
 {
 	short max = 11;
 	V3 pos[11];
+};
+
+struct Data_S2C_PlayerState
+{
+	short max = 11;
+	int state[11];
+	short frame[50];
 };
 
 struct Data_S2C_AddPlayer

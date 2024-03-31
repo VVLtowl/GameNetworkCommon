@@ -61,12 +61,12 @@ public:
 
 public:
 	//TCP
-	int Recieve(SOCKET* socket, char* msgBuf);
-	void Send(SOCKET* socket, char* msgBuf);
+	int Recieve(SOCKET* socket, char* msgBuf, bool debug=false);
+	void Send(SOCKET* socket, char* msgBuf, bool debug=false);
 
 	//UDP
-	int RecvFrom(SOCKET* socket, char* msgBuf, SOCKADDR_IN* from);
-	void SendTo(SOCKET* socket, char* msgBuf, SOCKADDR_IN* dest);
+	int RecvFrom(SOCKET* socket, char* msgBuf, SOCKADDR_IN* from, bool debug=false);
+	void SendTo(SOCKET* socket, char* msgBuf, SOCKADDR_IN* dest, bool debug=false);
 };
 
 #include "Server.h"

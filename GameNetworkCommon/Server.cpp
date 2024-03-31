@@ -146,12 +146,12 @@ void Server::Accept()
 	}
 }
 
-int Server::SRecvFromC(char* msgBuf)
+int Server::SRecvFromC(char* msgBuf,bool debug)
 {
 	SOCKADDR_IN tempAddr;
 	int clientID = 0;
 
-	if (RecvFrom(&(m_UDPSocket), msgBuf, &tempAddr) == 0)
+	if (RecvFrom(&(m_UDPSocket), msgBuf, &tempAddr, debug) == 0)
 	{
 		//std::cout << "wait, enable ID: " <<m_EnableID <<std::endl;
 		return -1;

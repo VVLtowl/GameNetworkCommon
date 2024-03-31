@@ -30,6 +30,9 @@
     <ClInclude Include="NetworkGameData.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Updater.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Client.cpp">
@@ -48,6 +51,9 @@
       <Filter>头文件</Filter>
     </ClCompile>
     <ClCompile Include="NetworkGameData.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Updater.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -43,7 +43,7 @@ void NetworkUnit::ShutDown()
 	m_IsStart = false;
 }
 
-int NetworkUnit::Recieve(SOCKET* socket, char* msgBuf)
+int NetworkUnit::Recieve(SOCKET* socket, char* msgBuf, bool debug)
 {
 	//recv
 	int ret = recv(
@@ -63,13 +63,14 @@ int NetworkUnit::Recieve(SOCKET* socket, char* msgBuf)
 	}
 	else
 	{
+		if (!debug)return 1;
 		//m_Manager->AddRecvMsg(socket, msgBuf);
 		std::cout << "recv\n";
 		return 1;
 	}
 }
 
-void NetworkUnit::Send(SOCKET* socket, char* msgBuf)
+void NetworkUnit::Send(SOCKET* socket, char* msgBuf, bool debug)
 {
 	//recv
 	int ret = send(
@@ -85,11 +86,12 @@ void NetworkUnit::Send(SOCKET* socket, char* msgBuf)
 	}
 	else
 	{
+		if (!debug)return;
 		std::cout << "send\n";
 	}
 }
 
-int NetworkUnit::RecvFrom(SOCKET* socket,char* msgBuf, SOCKADDR_IN* from)
+int NetworkUnit::RecvFrom(SOCKET* socket,char* msgBuf, SOCKADDR_IN* from, bool debug)
 {
 	int fromLen = sizeof(SOCKADDR);
 
@@ -105,14 +107,18 @@ int NetworkUnit::RecvFrom(SOCKET* socket,char* msgBuf, SOCKADDR_IN* from)
 	//check error
 	if (ret == SOCKET_ERROR)
 	{
+
 		//todo 
 		//make error default msgBuf
 		//m_Manager->AddRecvMsg(nullptr, msgBuf, from);
+		//if (!debug)return 0;
 		//std::cout << "recv from error\n";
 		return 0;
 	}
 	else
 	{
+		if (!debug)return 1;
+
 		//m_Manager->AddRecvMsg(socket, msgBuf, from);
 		std::cout << "recv from\n";
 
@@ -125,7 +131,7 @@ int NetworkUnit::RecvFrom(SOCKET* socket,char* msgBuf, SOCKADDR_IN* from)
 	}
 }
 
-void NetworkUnit::SendTo(SOCKET* socket, char* msgBuf, SOCKADDR_IN* dest)
+void NetworkUnit::SendTo(SOCKET* socket, char* msgBuf, SOCKADDR_IN* dest, bool debug)
 {
 	int destLen = sizeof(SOCKADDR);
 
@@ -141,10 +147,12 @@ void NetworkUnit::SendTo(SOCKET* socket, char* msgBuf, SOCKADDR_IN* dest)
 	//check error
 	if (ret == SOCKET_ERROR)
 	{
+		if (!debug)return;
 		std::cout << "send to error\n";
 	}
 	else
 	{
+		if (!debug)return;
 		std::cout << "send to\n";
 
 		//show destination ip send message
